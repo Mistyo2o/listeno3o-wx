@@ -1,0 +1,76 @@
+/* pages/song/song.wxss */
+page{
+    height: 100%;
+}
+.song-container{
+   background-size: 100% 100%;
+   width: 100%;
+   min-height: 48%;
+   filter:blur(20px);
+   transform: scale(0.8); 
+   position: absolute;
+   box-shadow: 0px 0px 100px 600px rgb(107, 101, 101); 
+   margin:  auto; 
+   z-index: -1;
+}
+
+
+.song-detailsCard{
+    width: 650px;
+    height: 400rpx;
+    background: rgba(255, 255, 255, 0);
+    margin: 0 auto;
+    /* box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%); */
+    transition: all 0.3s;
+}
+.song-cover{
+    padding: 35px;
+    text-align: center;
+    float: left;
+}
+.song-cover image{
+    width: 280rpx;
+    height: 280rpx;
+    border-radius: 25rpx;
+}
+.song-description{
+    padding: 80px 20px;
+    float: left;
+    /* border-left: 2px solid #efefef; */
+}
+.title{
+    font-size: 25px;
+    font-weight: bold;
+    font-family: system-ui;
+    color: rgb(255, 255, 255);
+}
+.title-author{
+    font-size: 28rpx;
+    font-family: system-ui;
+    margin-left: 10rpx;
+    color: rgb(255, 255, 255);
+}
+.song-autho-image{
+    height: 28px;
+    width: 28px;
+    border-radius: 50rpx;
+    vertical-align: middle;
+}
+.song-actionbar{
+   height: 100px;
+   background-color: greenyellow;
+}
+.song-bar{
+    height: 80px;
+    background-color: hotpink;
+}
+.song-list{
+    height: 530px;
+    background-color: greenyellow;
+}
+
+
+
+
+
+

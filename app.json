@@ -1,0 +1,15 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/song/song",
+        "components/navigation-bar/navigation-bar"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "o3o liste"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,33 @@
+<!--pages/song/song.wxml-->
+<navigation-bar navbar-data="{{navbarData}}"></navigation-bar>
+<view>
+    <view class="song-container" style="background-image: url({{songDetails.img}});">
+    </view>
+    <view class="song-content">
+        <!-- 歌单信息 -->
+        <view class="song-detailsCard">
+            <view class="song-cover">
+                <image src="{{songDetails.img}}"></image>
+            </view>
+            <view class="song-description">
+                <text class="title">{{songDetails.title}}</text>
+                <view style="margin-top: 10px;">
+                    <image class="song-autho-image" src="{{songDetails.img}}"></image>
+                    <text class="title-author">{{songDetails.author}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="song-bar">
+            
+        </view>
+         <!-- 歌曲列表 -->
+        <view class="song-list">
+            <scroll-view scroll-y="true" style="height: 100%;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="green" scroll-top="{{scrollTop}}">
+                    <view id="demo1" style="background-color: rgb(47, 196, 255);height: 300px;"></view>
+                    <view id="demo2" style="background-color: rgb(255, 47, 82);height: 300px;"></view>
+                    <view id="demo3" style="background-color: rgb(189, 47, 255);height: 300px;"></view>
+                </scroll-view>
+        </view>
+    </view>
+
+</view>

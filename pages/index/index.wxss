@@ -1,0 +1,69 @@
+/**index.wxss**/
+.index-head{
+    position: relative;
+    height: 350rpx;
+    background-image:url(https://cdn.staticaly.com/gh/Mistyo2o/some-image@master/20230225/Bleach01.webp);
+    margin-bottom: 20rpx;
+    /* background-size: 800rpx 600rpx; */
+}
+.index-image{
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    /* box-shadow: 3px 3px 3px rgb(207, 207, 207); */
+    box-sizing: content-box;
+    border: solid #e0e0e0 3px;
+}
+.image-view{
+    position: absolute;
+    top: 20%;
+    left: 40%;
+}
+
+.index-name{
+    margin-top: 15rpx;
+    margin-left: 15rpx;
+}
+.index-name text{
+    color: rgb(255, 255, 255);
+    font-family: "Gill Sans", sans-serif;
+    font-size: 32rpx;
+}
+
+
+.index-playlist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12rpx 0;
+    color: rgb(0, 0, 0);
+}
+.index-playlist-item-meta{
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    max-width: 100%;
+}
+
+.index-playlist{
+    padding: 20rpx 20rpx 20rpx;
+}
+.index-playlist-item-meta-avatar{
+    margin-right: 16px;
+}
+.index-playlist-item-meta-avatar-img{
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.index-playlist-item-meta-avatar-content{
+    flex: 1;
+    width: 0;
+    color: rgb(0, 0, 0);
+}
+.index-playlist-item-meta-avatar-content-playIcon{
+    display: inline;
+    float: right;
+    width: 48px;
+    height: 48px;
+}
