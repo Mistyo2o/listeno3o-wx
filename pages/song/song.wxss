@@ -3,8 +3,8 @@ page{
     height: 100%;
 }
 .song-container{
-   background-size: 100% 100%;
-   width: 100%;
+   background-size: 750rpx 750rpx;
+   width: 750rpx;
    min-height: 48%;
    filter:blur(20px);
    transform: scale(0.8); 
@@ -12,11 +12,12 @@ page{
    box-shadow: 0px 0px 100px 600px rgb(107, 101, 101); 
    margin:  auto; 
    z-index: -1;
+   overflow-x:hidden;
 }
 
 
 .song-detailsCard{
-    width: 650px;
+    width: 750rpx;
     height: 400rpx;
     background: rgba(255, 255, 255, 0);
     margin: 0 auto;
@@ -34,7 +35,7 @@ page{
     border-radius: 25rpx;
 }
 .song-description{
-    padding: 80px 20px;
+    padding: 100rpx 40rpx;
     float: left;
     /* border-left: 2px solid #efefef; */
 }
@@ -51,8 +52,8 @@ page{
     color: rgb(255, 255, 255);
 }
 .song-autho-image{
-    height: 28px;
-    width: 28px;
+    height: 48rpx;
+    width: 48rpx;
     border-radius: 50rpx;
     vertical-align: middle;
 }
