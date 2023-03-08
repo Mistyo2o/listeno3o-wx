@@ -20,12 +20,61 @@ Page({
         height: app.globalData.systeminfo.statusBarHeight * 2 + 20,
         //歌单id
         playId: "",
-        songList: [],
+        songList: [
+            {
+                id:"1",
+                songName: "黄金甲",
+                author: "周杰伦",
+                album: "黄金甲"
+            },
+            {
+                id:"2",
+                songName: "说好的幸福呢",
+                author: "周杰伦",
+                album: "魔杰座"
+            },
+            {
+                id:"3",
+                songName: "甜甜的",
+                author: "周杰伦",
+                album: "我很忙"
+            },
+            {
+                id:"4",
+                songName: "烟花易冷",
+                author: "周杰伦",
+                album: "跨时代"
+            },
+            {
+                id:"5",
+                songName: "兰亭序",
+                author: "周杰伦",
+                album: "魔杰座"
+            },
+            {
+                id:"6",
+                songName: "青花瓷",
+                author: "周杰伦",
+                album: "我很忙"
+            },
+            {
+                id:"7",
+                songName: "发如雪",
+                author: "周杰伦",
+                album: "十一月的萧邦"
+            },
+            {
+                id:"8",
+                songName: "花海",
+                author: "周杰伦",
+                album: "魔杰座"
+            }   
+        ],
         songDetails: {
             title: "秋江月",
             img: "https://cdn.staticaly.com/gh/Mistyo2o/some-image@master/20230301/fengmian.webp",
             author: "花月年年"
-        }
+        },
     },
 
     scrollToTop() {
