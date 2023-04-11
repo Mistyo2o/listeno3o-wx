@@ -32,7 +32,7 @@
     <view class="song-list">
         <scroll-view  scroll-y="true" style="display: flex;flex-direction: column;" >
             <view class="o3o-list-item" wx:for="{{songList}}">
-                <view class="o3o-list-item-meta">
+                <view class="o3o-list-item-meta" bindtap="toPlay" data-id="{{item.id}}">
                     <view class="o3o-list-item-meta-avatar">
                         <text>{{index + 1}}</text>
                     </view>

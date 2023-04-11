@@ -22,53 +22,53 @@ Page({
         playId: "",
         songList: [
             {
-                id:"1",
+                id: "1",
                 songName: "黄金甲",
                 author: "周杰伦",
                 album: "黄金甲"
             },
             {
-                id:"2",
+                id: "2",
                 songName: "说好的幸福呢",
                 author: "周杰伦",
                 album: "魔杰座"
             },
             {
-                id:"3",
+                id: "3",
                 songName: "甜甜的",
                 author: "周杰伦",
                 album: "我很忙"
             },
             {
-                id:"4",
+                id: "4",
                 songName: "烟花易冷",
                 author: "周杰伦",
                 album: "跨时代"
             },
             {
-                id:"5",
+                id: "5",
                 songName: "兰亭序",
                 author: "周杰伦",
                 album: "魔杰座"
             },
             {
-                id:"6",
+                id: "6",
                 songName: "青花瓷",
                 author: "周杰伦",
                 album: "我很忙"
             },
             {
-                id:"7",
+                id: "7",
                 songName: "发如雪",
                 author: "周杰伦",
                 album: "十一月的萧邦"
             },
             {
-                id:"8",
+                id: "8",
                 songName: "花海",
                 author: "周杰伦",
                 album: "魔杰座"
-            }   
+            }
         ],
         songDetails: {
             title: "秋江月",
@@ -79,23 +79,32 @@ Page({
 
     scrollToTop() {
         this.setAction({
-          scrollTop: 0
+            scrollTop: 0
         })
     },
     tap() {
         for (let i = 0; i < order.length; ++i) {
-          if (order[i] === this.data.toView) {
-            this.setData({
-              toView: order[i + 1],
-              scrollTop: (i + 1) * 200
-            })
-            break
-          }
+            if (order[i] === this.data.toView) {
+                this.setData({
+                    toView: order[i + 1],
+                    scrollTop: (i + 1) * 200
+                })
+                break
+            }
         }
     },
     tapMove() {
         this.setData({
-          scrollTop: this.data.scrollTop + 10
+            scrollTop: this.data.scrollTop + 10
+        })
+    },
+
+
+    //跳转播放页面
+    toPlay: function (e) {
+        console.log(e.currentTarget.dataset.id)
+        wx.navigateTo({
+            url: '../play/play?songId=' + e.currentTarget.dataset.id,
         })
     },
 
@@ -144,7 +153,7 @@ Page({
     onPullDownRefresh() {
         setTimeout(() => {
             wx.stopPullDownRefresh();
-          }, 2000);
+        }, 2000);
     },
 
     /**

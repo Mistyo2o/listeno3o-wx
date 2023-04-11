@@ -1,0 +1,35 @@
+/* components/player/player.wxss */
+.player-card{
+    width: 90%;
+    margin-left: 5%;
+    height: 150rpx;
+    background: rgb(26, 25, 25);
+    border-radius: 20rpx;
+    box-shadow: 5px 5px 5px #cdcfcf;
+    position: fixed;
+    bottom: 50rpx;
+}
+.cover-img{
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 100rpx;
+    margin-left: 20rpx;
+    position: fixed;
+    bottom: 80rpx;
+    border: solid #ffffff67 3px;
+}
+.button-item{
+    margin-top: 45rpx;
+    margin-left: 250rpx;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+.upBut{
+    width: 60rpx;
+    height: 60rpx;
+}
+.upBut-big{
+    width: 64rpx;
+    height: 64rpx;
+}

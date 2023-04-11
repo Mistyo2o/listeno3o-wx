@@ -1,0 +1,10 @@
+<!--components/player/player.wxml-->
+<view class="player-card">
+    <image class="cover-img" src="https://cdn.staticaly.com/gh/Mistyo2o/some-image@master/20230301/fengmian.webp"></image>
+    <view class="button-item">
+        <image class="upBut" src="/assets/images/up-bai.png"></image>
+        <image wx:if="{{!tridPlay}}" bindtap="songPlay" class="upBut-big" src="/assets/images/bg-play.png"></image>
+        <image wx:if="{{tridPlay}}" bindtap="songPlay" class="upBut-big" src="/assets/images/bf.png"></image>
+        <image class="upBut" src="/assets/images/next-bai.png"></image>
+    </view>
+</view>

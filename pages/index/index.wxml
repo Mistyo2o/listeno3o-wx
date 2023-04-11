@@ -1,28 +1,29 @@
 <!--index.wxml-->
-  <view class="index-head">
+<view class="index-head">
     <view class="image-view">
         <image class="index-image" src="https://pic6.y.qq.com/qqmusic/avatar/6f7734504e654369374b4569377a2a2a-1671587809/140"></image>
         <view class="index-name">
             <text>花月年年</text>
-        </view>  
-    </view>   
-  </view>
-  <view class="index-playlist" >
-        <view class="index-playlist-item" wx:for="{{dataList}}" wx:key="item">
-            <view class="index-playlist-item-meta" bindtap="toSongList" data-id="{{item.id}}">
-                <!-- 封面图 -->
-                <view class="index-playlist-item-meta-avatar">
-                    <image class="index-playlist-item-meta-avatar-img" src="{{item.cover}}"></image>
-                </view>
-                <!-- 歌单名称 -->
-                <view class="index-playlist-item-meta-avatar-content">
-                    <text style="line-height: 100rpx;">{{item.title}}</text>
-                </view>
-                
-            </view>
-            <view style="font-size: 0;">
-                    <image wx:if="{{!item.isPlay}}" bindtap="playCheck" data-id="{{item.id}}"  class="index-playlist-item-meta-avatar-content-playIcon" src="{{iconPlayStart}}"></image>
-                    <image wx:if="{{item.isPlay}}" bindtap="playCheck" data-id="{{item.id}}" class="index-playlist-item-meta-avatar-content-playIcon" src="{{iconPlayStop}}"></image>
-            </view>
         </view>
     </view>
+</view>
+<view class="index-playlist">
+    <view class="index-playlist-item" wx:for="{{dataList}}" wx:key="item">
+        <view class="index-playlist-item-meta" bindtap="toSongList" data-id="{{item.id}}">
+            <!-- 封面图 -->
+            <view class="index-playlist-item-meta-avatar">
+                <image class="index-playlist-item-meta-avatar-img" src="{{item.cover}}"></image>
+            </view>
+            <!-- 歌单名称 -->
+            <view class="index-playlist-item-meta-avatar-content">
+                <text style="line-height: 100rpx;">{{item.title}}</text>
+            </view>
+
+        </view>
+        <!-- <view style="font-size: 0;">
+                    <image wx:if="{{!item.isPlay}}" bindtap="playCheck" data-id="{{item.id}}"  class="index-playlist-item-meta-avatar-content-playIcon" src="{{iconPlayStart}}"></image>
+                    <image wx:if="{{item.isPlay}}" bindtap="playCheck" data-id="{{item.id}}" class="index-playlist-item-meta-avatar-content-playIcon" src="{{iconPlayStop}}"></image>
+            </view> -->
+    </view>
+</view>
+<player></player>
