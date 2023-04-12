@@ -113,15 +113,20 @@ Page({
     },
 
     scrolltolowerHandler: function(){
-        this.setData({
-            playerSign: false
-        })
+        if(app.globalData.playerSign){
+            this.setData({
+                playerSign: false
+            })
+        }
+        
     },
     scrollHandler:function(event){
-        if(event.detail.scrollTop <= 80){
-            this.setData({
-                playerSign: true
-            })
+        if(app.globalData.playerSign){
+            if(event.detail.scrollTop <= 80){
+                this.setData({
+                    playerSign: true
+                })
+            }
         }
     },
 
