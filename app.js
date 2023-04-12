@@ -45,6 +45,8 @@ App({
     globalData: {
         userInfo: null,
         systeminfo: {}, // 系统信息
-        headerBtnPosi: {} // 胶囊按钮位置信息
+        headerBtnPosi: {}, // 胶囊按钮位置信息
+        playerSign: false, //播放器组件展示标记
+        playerBtn: false //播放按钮状态
     }
 })

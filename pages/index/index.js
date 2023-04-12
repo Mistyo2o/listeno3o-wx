@@ -25,7 +25,8 @@ Page({
                 title: "见君意",
                 isPlay: false
             }
-        ]
+        ],
+        playerSign: ""
     },
 
     //点击播放icon
@@ -56,5 +57,20 @@ Page({
         wx.navigateTo({
           url: '../song/song?playId=' + e.currentTarget.dataset.id,
         })
-    }
+    },
+
+    onLoad(options) {
+        let that = this
+        that.setData({
+            playerSign: app.globalData.playerSign
+        })
+        //根据歌单id 查询歌曲列表数据
+    },
+
+    onShow() {
+        let that = this
+        that.setData({
+            playerSign: app.globalData.playerSign
+        })
+    },
 })

@@ -26,4 +26,4 @@
             </view> -->
     </view>
 </view>
-<player></player>
+<player wx:if="{{playerSign}}"></player>

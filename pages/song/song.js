@@ -16,6 +16,7 @@ Page({
             iconColor: 'white', // icon颜色 black/white
             borderColor: 'rgba(255, 255, 255, 0.3)' // 边框颜色 格式为 rgba()，透明度为0.3
         },
+        playerComom:{},
         // 此页面 页面内容距最顶部的距离
         height: app.globalData.systeminfo.statusBarHeight * 2 + 20,
         //歌单id
@@ -25,7 +26,8 @@ Page({
                 id: "1",
                 songName: "黄金甲",
                 author: "周杰伦",
-                album: "黄金甲"
+                album: "黄金甲",
+                playUrl: "http://116.62.50.80:9000/music/%E9%BB%84%E9%87%91%E7%94%B2%E5%91%A8%E6%9D%B0%E4%BC%A6.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=sh86FzKIyKU7aevF%2F20230411%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230411T025906Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=66ca83ee6c072d369d7b54711fbccaf6c53bb7ffd14998307fd56a5b8026980c"
             },
             {
                 id: "2",
@@ -75,6 +77,7 @@ Page({
             img: "https://cdn.staticaly.com/gh/Mistyo2o/some-image@master/20230301/fengmian.webp",
             author: "花月年年"
         },
+        playerSign: false
     },
 
     scrollToTop() {
@@ -100,12 +103,26 @@ Page({
     },
 
 
-    //跳转播放页面
-    toPlay: function (e) {
-        console.log(e.currentTarget.dataset.id)
-        wx.navigateTo({
-            url: '../play/play?songId=' + e.currentTarget.dataset.id,
+    play: function (e) {
+        this.setData({
+            playerSign: true
         })
+        app.globalData.playerSign = true
+        this.playerComom = this.selectComponent("#player")
+        this.playerComom.songPlay(e.currentTarget.dataset.id)       
+    },
+
+    scrolltolowerHandler: function(){
+        this.setData({
+            playerSign: false
+        })
+    },
+    scrollHandler:function(event){
+        if(event.detail.scrollTop <= 80){
+            this.setData({
+                playerSign: true
+            })
+        }
     },
 
     /**
@@ -114,7 +131,7 @@ Page({
     onLoad(options) {
         let that = this
         that.setData({
-            playId: options.playId
+            //playId: options.playId
         })
         //根据歌单id 查询歌曲列表数据
     },
@@ -130,7 +147,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.setData({
+            playerSign: app.globalData.playerSign
+        })
     },
 
     /**

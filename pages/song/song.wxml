@@ -30,9 +30,9 @@
     </view>
     <!-- 歌曲列表 -->
     <view class="song-list">
-        <scroll-view  scroll-y="true" style="display: flex;flex-direction: column;" >
-            <view class="o3o-list-item" wx:for="{{songList}}">
-                <view class="o3o-list-item-meta" bindtap="toPlay" data-id="{{item.id}}">
+        <scroll-view enable-flex="true" bindscrolltolower="scrolltolowerHandler" bindscroll="scrollHandler"  scroll-y="true" style="display: flex;flex-direction: column;" >
+            <view class="o3o-list-item" wx:for="{{songList}}" wx:key="index">
+                <view class="o3o-list-item-meta" bindtap="play" data-id="{{item.playUrl}}">
                     <view class="o3o-list-item-meta-avatar">
                         <text>{{index + 1}}</text>
                     </view>
@@ -42,7 +42,7 @@
                     </view>
                 </view>
             </view> 
-            <!-- 占位 不加占位最后一行元素滚动不到显示区域上 不知道为啥 -->
+                        <!-- 占位 不加占位最后一行元素滚动不到显示区域上 不知道为啥 -->
             <view class="o3o-list-item-meta"></view>
             <view class="o3o-list-item-meta"></view>
             <view class="o3o-list-item-meta"></view>
@@ -51,3 +51,4 @@
         </scroll-view>
     </view>
 </view>
+<player wx:if="{{playerSign}}" id="player"></player>
