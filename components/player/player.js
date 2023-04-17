@@ -38,6 +38,19 @@ Component({
                     app.globalData.playerBtn = false
                 })
             }
+        },
+        //点击播放
+        cickPlay:function(playUrl){
+            let that = this
+            songAudio.src = playUrl
+            songAudio.play();
+            that.setData({ tridPlay: true })
+            app.globalData.playerBtn = true
+            songAudio.onEnded(function(){
+                console.log('播放结束')
+                that.setData({ tridPlay: false })
+                app.globalData.playerBtn = false
+            })
         }
     }
 })

@@ -1,31 +1,12 @@
 // index.js
 // 获取应用实例
 const app = getApp()
-
+const musicApi = require("../../utils/musicApi")
 Page({
     data: {
         iconPlayStart: "../../assets/images/playStart.png",
         iconPlayStop: "../../assets/images/playStop.png",
-        dataList: [
-            {
-                id:"1",
-                cover: "https://cdn.staticaly.com/gh/Mistyo2o/some-image@master/20230301/fengmian.webp",
-                title: "秋江月",
-                isPlay: false
-            },
-            {
-                id:"2",
-                cover: "https://cdn.staticaly.com/gh/Mistyo2o/some-image@master/20230301/fengmian.webp",
-                title: "风凛冽",
-                isPlay: false
-            },
-            {
-                id:"3",
-                cover: "https://cdn.staticaly.com/gh/Mistyo2o/some-image@master/20230301/fengmian.webp",
-                title: "见君意",
-                isPlay: false
-            }
-        ],
+        dataList: [],
         playerSign: ""
     },
 
@@ -59,8 +40,20 @@ Page({
         })
     },
 
+    //歌单列表
+    getPlay(){
+        musicApi.playList("2548635937").then(res => {
+            this.setData({
+                dataList: res.data
+            })
+        }).catch(err => {
+            console.log(err)
+        })
+    },
+
     onLoad(options) {
         let that = this
+        that.getPlay()
         that.setData({
             playerSign: app.globalData.playerSign
         })

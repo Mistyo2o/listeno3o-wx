@@ -1,5 +1,6 @@
 // pages/song/song.js
 const app = getApp()
+const musicApi = require("../../utils/musicApi")
 Page({
 
     /**
@@ -101,17 +102,14 @@ Page({
             scrollTop: this.data.scrollTop + 10
         })
     },
-
-
     play: function (e) {
         this.setData({
             playerSign: true
         })
         app.globalData.playerSign = true
         this.playerComom = this.selectComponent("#player")
-        this.playerComom.songPlay(e.currentTarget.dataset.id)       
+        this.playerComom.cickPlay(e.currentTarget.dataset.id)       
     },
-
     scrolltolowerHandler: function(){
         if(app.globalData.playerSign){
             this.setData({
@@ -122,23 +120,31 @@ Page({
     },
     scrollHandler:function(event){
         if(app.globalData.playerSign){
-            if(event.detail.scrollTop <= 80){
+            if(event.detail.scrollTop <= 100){
                 this.setData({
                     playerSign: true
                 })
             }
         }
     },
-
+    //歌曲列表
+    getSongList(playId){
+        musicApi.songList(playId).then(res => {
+            this.setData({
+                songList: res.data
+            })
+        }).catch(err => {
+            console.log(err)
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
         let that = this
-        that.setData({
-            //playId: options.playId
-        })
         //根据歌单id 查询歌曲列表数据
+        that.getSongList(options.playId)
+        
     },
 
     /**

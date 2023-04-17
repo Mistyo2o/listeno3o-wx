@@ -9,14 +9,14 @@
 </view>
 <view class="index-playlist">
     <view class="index-playlist-item" wx:for="{{dataList}}" wx:key="item">
-        <view class="index-playlist-item-meta" bindtap="toSongList" data-id="{{item.id}}">
+        <view class="index-playlist-item-meta" bindtap="toSongList" data-id="{{item.tid}}">
             <!-- 封面图 -->
             <view class="index-playlist-item-meta-avatar">
-                <image class="index-playlist-item-meta-avatar-img" src="{{item.cover}}"></image>
+                <image class="index-playlist-item-meta-avatar-img" src="{{item.playCover}}"></image>
             </view>
             <!-- 歌单名称 -->
             <view class="index-playlist-item-meta-avatar-content">
-                <text style="line-height: 100rpx;">{{item.title}}</text>
+                <text style="line-height: 100rpx;">{{item.playName}}</text>
             </view>
 
         </view>

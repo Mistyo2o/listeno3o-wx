@@ -32,12 +32,12 @@
     <view class="song-list">
         <scroll-view enable-flex="true" bindscrolltolower="scrolltolowerHandler" bindscroll="scrollHandler"  scroll-y="true" style="display: flex;flex-direction: column;" >
             <view class="o3o-list-item" wx:for="{{songList}}" wx:key="index">
-                <view class="o3o-list-item-meta" bindtap="play" data-id="{{item.playUrl}}">
+                <view class="o3o-list-item-meta" bindtap="play" data-id="{{item.previewUrl}}">
                     <view class="o3o-list-item-meta-avatar">
                         <text>{{index + 1}}</text>
                     </view>
                     <view class="o3o-list-item-meta-content">
-                        <h4 class="o3o-list-item-meta-title">{{item.songName}}</h4>
+                        <h4 class="o3o-list-item-meta-title">{{item.name}}</h4>
                         <view class="o3o-list-item-meta-description">{{item.author}}-{{item.album}}</view>
                     </view>
                 </view>
