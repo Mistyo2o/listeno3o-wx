@@ -67,3 +67,68 @@
     width: 48px;
     height: 48px;
 }
+.bc_green{
+    background-color: green;
+}
+.bc_red{
+    background-color: red;
+}
+.bc_yellow{
+    background-color: yellow;
+}
+.bc_blue{
+    background-color: blue;
+}
+.scroll-x-list{
+    height: 80rpx;
+}
+.scroll-view-item{
+    height: 55rpx;
+    width: 200rpx;
+    background: #31c27c;
+    margin:12rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 20rpx;
+    font-size: 28rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.scroll-view-item-text{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 145rpx;
+}
+.scroll-flex-view{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.scroll-view-parent{
+    display: inline-block;
+    width: 100%;
+}
+.qqUsers-del-icon{
+    width: 40rpx;
+    height: 40rpx;
+}
+.qqUsers{
+    height: 80rpx;
+    background: #dddcdc;
+    display: flex;
+}
+.add-group-icon{
+    width: 50rpx;
+    height: 50rpx;
+    margin: 15rpx;
+}
+.notUser-tips{
+    color: rgb(161, 159, 159);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 25rpx;
+    margin-left: 20rpx;
+}

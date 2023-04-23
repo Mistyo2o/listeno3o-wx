@@ -1,7 +1,10 @@
+const url = "http://116.62.50.80:8090/"
+const devUrl = "http://127.0.0.1:8090/"
+
 const request = function (url, options) {
     return new Promise((resolve, reject) => {
         wx.request({
-            url: url,
+            url: devUrl + url,
             method: options.method,
             data: options.method == "GET" ? options.data : JSON.stringify(options.data),
             success: (res) => {
@@ -29,6 +32,6 @@ module.exports = {
 
     //post
     post(url, data){
-        return request(url,{method:"PSOT", data})
+        return request(url,{method:"POST", data})
     }
 }

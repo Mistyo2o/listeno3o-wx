@@ -1,12 +1,31 @@
-<!--index.wxml-->
 <view class="index-head">
+<!-- 微信账号信息 -->
     <view class="image-view">
         <image class="index-image" src="https://pic6.y.qq.com/qqmusic/avatar/6f7734504e654369374b4569377a2a2a-1671587809/140"></image>
         <view class="index-name">
-            <text>花月年年</text>
+            <text>微信昵称</text>
         </view>
     </view>
 </view>
+<!-- QQ音乐账号列表 -->
+<view class="qqUsers">
+    <view bindtap="addUser">
+        <image class="add-group-icon" src="../../assets/images/add-group.png"></image>
+    </view>
+    <scroll-view wx:if="{{qqUsers.length > 0}}" class="scroll-x-list" scroll-x="true">
+        <view class="scroll-flex-view">
+            <view class="scroll-view-parent" wx:for="{{qqUsers}}" wx:key="item">
+                <view class="scroll-view-item" bindtap="switchUser" data-id="{{item.qq}}">
+                    <text class="scroll-view-item-text">{{item.name}}</text>
+                    <image class="qqUsers-del-icon" src="../../assets/images/delete_user_icon.png"></image>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view wx:else class="notUser-tips">未添加账号信息</view>
+</view>
+
+<!-- 歌单信息 -->
 <view class="index-playlist">
     <view class="index-playlist-item" wx:for="{{dataList}}" wx:key="item">
         <view class="index-playlist-item-meta" bindtap="toSongList" data-id="{{item.tid}}">
