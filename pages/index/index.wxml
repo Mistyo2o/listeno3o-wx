@@ -15,7 +15,7 @@
     <scroll-view wx:if="{{qqUsers.length > 0}}" class="scroll-x-list" scroll-x="true">
         <view class="scroll-flex-view">
             <view class="scroll-view-parent" wx:for="{{qqUsers}}" wx:key="item">
-                <view class="scroll-view-item" bindtap="switchUser" data-id="{{item.qq}}">
+                <view class="scroll-view-item {{item.def > 0 ? 'scroll-view-item-bg':''}}" bindtap="switchUser" data-id="{{item.qq}}">
                     <text class="scroll-view-item-text">{{item.name}}</text>
                     <image class="qqUsers-del-icon" src="../../assets/images/delete_user_icon.png"></image>
                 </view>

@@ -1,3 +1,4 @@
+const url = "http://116.62.50.80:8090/"
 const devUrl = "http://127.0.0.1:8090/"
 
 const request = function (url, options) {

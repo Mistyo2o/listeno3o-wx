@@ -67,34 +67,25 @@
     width: 48px;
     height: 48px;
 }
-.bc_green{
-    background-color: green;
-}
-.bc_red{
-    background-color: red;
-}
-.bc_yellow{
-    background-color: yellow;
-}
-.bc_blue{
-    background-color: blue;
-}
 .scroll-x-list{
     height: 80rpx;
 }
 .scroll-view-item{
     height: 55rpx;
     width: 200rpx;
-    background: #31c27c;
+    /* background: #31c27c; */
     margin:12rpx;
     text-align: center;
     line-height: 50rpx;
     border-radius: 20rpx;
+    border: solid 1px rgb(207, 205, 205);
     font-size: 28rpx;
     display: flex;
     align-items: center;
     justify-content: center;
-
+}
+.scroll-view-item-bg{
+    background: #31c27c;
 }
 .scroll-view-item-text{
     text-overflow: ellipsis;
