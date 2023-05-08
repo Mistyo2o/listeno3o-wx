@@ -10,7 +10,8 @@ Page({
         iconPlayStop: "../../assets/images/playStop.png",
         dataList: [],
         playerSign: "",
-        qqUsers: []
+        qqUsers: [],
+        user: app.globalData.userInfo
     },
     //添加用户
     addUser: function () {
@@ -133,65 +134,71 @@ Page({
         wx.login({
             success: res => {
                 let code = res.code
-                // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                wx.request({
-                    url: `https://api.weixin.qq.com/sns/jscode2session?appid=wx9c51377ee8928c15&secret=69a82eae213ee12fb04cbe60d8660fbe&js_code=${code}&grant_type=authorization_code`,
-                    success: res => {
-                        var openId = res.data.openid
-                        var sessionKey = res.data.session_key
-                        userInfoApi.getUserInfo(openId).then(userInfo => {
-                            if (userInfo.data) {
-                                //存在用户信息
-                                app.globalData.userInfo = userInfo.data
-                                //根据用户信息 查询绑定的QQ账号
-                                userInfoApi.getUserQqList(userInfo.data.openId).then(res => {
-                                    console.log(res.data)
+                //换取openid
+                userInfoApi.getOpenId(code).then(codeRes => {
+                    if(200 == codeRes.code){
+                       let _openid = codeRes.data.openid
+                       let _sessionKey = codeRes.data.sessionKey
+                        userInfoApi.getUserInfo(_openid).then(resUser => {
+                            if(200 == resUser.code){
+                                if (resUser.data) {
+                                    //存在用户信息
+                                    app.globalData.userInfo = resUser.data
                                     this.setData({
-                                        qqUsers: res.data
+                                        user: resUser.data
                                     })
-                                    //加载上一次选择的账号加载歌单
-                                    res.data.forEach(function (item) {
-                                        //加载默认选中的歌单列表
-                                        if (item.def == 1) {
-                                            console.log(1)
-                                            that.getPlay(item.qq)
-                                        }
+                                    //根据用户信息 查询绑定的QQ账号
+                                    userInfoApi.getUserQqList(resUser.data.openId).then(res => {
+                                        this.setData({
+                                            qqUsers: res.data
+                                        })
+                                        //加载上一次选择的账号加载歌单
+                                        res.data.forEach(function (item) {
+                                            //加载默认选中的歌单列表
+                                            if (item.def == 1) {
+                                                console.log(1)
+                                                that.getPlay(item.qq)
+                                            }
+                                        })
                                     })
-                                })
-                            } else {
-                                //用户首次进入
-                                wx.showModal({
-                                    title: '提示框',
-                                    content: '为了更好的用户体验，我们将获取您的微信头像和名称',
-                                    complete: (sm) => {
-                                        if (sm.confirm) {
-                                            //获取用户信息并保存
-                                            wx.getUserProfile({
-                                                desc: '您的信息仅作为个人展示',
-                                                success: up => {
-                                                    console.log(up)
-                                                    let userInfo = {
-                                                        openId: openId,
-                                                        sessionKey: sessionKey,
-                                                        avatarUrl: up.userInfo.avatarUrl,
-                                                        nickName: up.userInfo.nickName
+                                } else {
+                                    //用户首次进入
+                                    wx.showModal({
+                                        title: '提示框',
+                                        content: '为了更好的用户体验，我们将获取您的微信头像和名称',
+                                        complete: (sm) => {
+                                            if (sm.confirm) {
+                                                //获取用户信息并保存
+                                                wx.getUserProfile({
+                                                    desc: '您的信息仅作为个人展示',
+                                                    success: up => {
+                                                        let userInfo = {
+                                                            openId: _openid,
+                                                            sessionKey: _sessionKey,    
+                                                            avatarUrl: up.userInfo.avatarUrl,
+                                                            nickName: up.userInfo.nickName
+                                                        }
+                                                        app.globalData.userInfo = userInfo
+                                                        userInfoApi.saveUserInfo(userInfo).then(res => {
+                                                            if( 200 == res.code){
+                                                                //重新加载页面
+                                                                that.weChatUserLogin()
+                                                            }
+                                                        }).catch(res => {
+            
+                                                        })
                                                     }
-                                                    app.globalData.userInfo = userInfo
-                                                    userInfoApi.saveUserInfo(userInfo).then(res => {
-                                                        console.log(res)
-                                                    }).catch(res => {
-
-                                                    })
-                                                }
-                                            })
+                                                })
+                                            }
                                         }
-                                    }
-                                })
+                                    })
+                                }
                             }
-                        }).catch(err => {
-
                         })
                     }
+                    
+                }).catch(err => {
+
                 })
             }
         })

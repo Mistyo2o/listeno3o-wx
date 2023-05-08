@@ -1,9 +1,9 @@
 <view class="index-head">
 <!-- 微信账号信息 -->
     <view class="image-view">
-        <image class="index-image" src="https://pic6.y.qq.com/qqmusic/avatar/6f7734504e654369374b4569377a2a2a-1671587809/140"></image>
+        <image class="index-image" src="{{user.avatarUrl}}"></image>
         <view class="index-name">
-            <text>微信昵称</text>
+            <text>{{user.nickName}}</text>
         </view>
     </view>
 </view>

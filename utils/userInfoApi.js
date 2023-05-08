@@ -1,8 +1,13 @@
 const req = require("./request")
 module.exports = {
-    //获取用户登录信息
-    getUserInfo(openId){
-        let url = "weChatUser/getInfo/" + openId
+    //换取openid
+    getOpenId(code){
+        let url = "weChatUser/getOpenId/" + code
+        return req.get(url, {})
+    },
+    //查询用户信息
+    getUserInfo(openid){
+        let url = "weChatUser/getInfo/" + openid
         return req.get(url, {})
     },
     //获取用户添加的qq账号
